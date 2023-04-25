@@ -29,30 +29,30 @@ public class MvcController {
         return "index";
     }
 
-    @GetMapping("/person")
-    public String getPerson(Model model) {
-        var person = new Persona();
-        person.setNombre("Juan");
-        person.setApellido("Perez");
-        person.setEmail("juanPerez@mail.com");
-        person.setTelefono("2225664321");
+    // @GetMapping("/person")
+    // public String getPerson(Model model) {
+    //     var person = new Persona();
+    //     person.setNombre("Juan");
+    //     person.setApellido("Perez");
+    //     person.setEmail("juanPerez@mail.com");
+    //     person.setTelefono("2225664321");
 
-        var person2 = new Persona();
-        person2.setNombre("Karla");
-        person2.setApellido("Gomez");
-        person2.setEmail("karlaGomez@mail.com");
-        person2.setTelefono("55443322");
+    //     var person2 = new Persona();
+    //     person2.setNombre("Karla");
+    //     person2.setApellido("Gomez");
+    //     person2.setEmail("karlaGomez@mail.com");
+    //     person2.setTelefono("55443322");
 
-        /*Crear lista opcion 1*/
-        // var personList = new ArrayList();
-        // personList.add(person);
-        // personList.add(person2);
+    //     /*Crear lista opcion 1*/
+    //     // var personList = new ArrayList();
+    //     // personList.add(person);
+    //     // personList.add(person2);
 
-        /*Crear lista opcion 2*/
-        var personList = Arrays.asList(person, person2);
+    //     /*Crear lista opcion 2*/
+    //     var personList = Arrays.asList(person, person2);
 
-        // model.addAttribute("persona", person);
-        model.addAttribute("personList", personList);
-        return "person";
-    }
+    //     // model.addAttribute("persona", person);
+    //     model.addAttribute("personList", personList);
+    //     return "person";
+    // }
 }
