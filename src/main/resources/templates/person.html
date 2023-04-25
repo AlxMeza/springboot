@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringBoot</title>
+</head>
+<body>
+    <!-- <ul>
+        <li th:text="${persona.nombre}"></li>
+        <li th:text="${persona.apellido}"></li>
+        <li th:text="${persona.email}"></li>
+        <li th:text="${persona.telefono}"></li>
+    </ul> -->
+    <div th:if="${personList != null and !personList.empty}">
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+            </tr>
+            <tr th:each="persona : ${personList}">
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.apellido}"></td>
+                <td th:text="${persona.email}"></td>
+                <td th:text="${persona.telefono}"></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${personList == null or personList.empty}">
+        <p style="color:firebrick; font-size: 1.2rem; text-align: center;">La lista de personas esta vacia</p>
+    </div>
+</body>
+</html>
