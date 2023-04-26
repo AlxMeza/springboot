@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Person</title>
+</head>
+<body>
+    <h1>Datos de la persona</h1>
+    <a th:href="@{/persons}" style="margin:2rem 0">Regresar</a>
+
+    <form th:action="@{/save}" method="post" th:object="${person}" style="margin: 2rem 0">
+        <input type="hidden" name="id" th:field="*{id}">
+        <input type="text" placeholder="name" name="name" th:field="*{name}">
+        <input type="text" placeholder="lastname" name="lastname" th:field="*{lastname}" style="display: block; margin: 0.8rem 0;">
+        <input type="email" placeholder="email" name="email" th:field="*{email}" style="display: block; margin: 0.8rem 0;">
+        <input type="tel" placeholder="phone" name="phone" th:field="*{phone}" style="display: block; margin: 0.8rem 0;">
+
+        <button type="submit" name="save" value="save" style="color:whitesmoke; border-radius: 0.5rem; background-color: rgb(110, 31, 212); padding: 0.2rem 1rem; border-color: transparent;">Send</button>
+    </form>
+</body>
+</html>
