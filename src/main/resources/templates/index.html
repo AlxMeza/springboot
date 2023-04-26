@@ -7,8 +7,12 @@
     <title>SpringBoot</title>
 </head>
 <body>
-    <h1 style="color:aqua; font-weight: 600;">Hello World by SpringBoot</h1>
+    <!-- <h1 style="color:aqua; font-weight: 600;">Hello World by SpringBoot</h1> -->
+    <header th:replace="layouts/main :: header"></header>
     <p th:text="${mensaje}"></p>
     <p th:text="${message}"></p>
+
+    <a href="/persons" style="color:blueviolet; font-family: sans-serif; font-weight: 500;">Next</a>
+    <footer th:replace="layouts/main :: footer"></footer>
 </body>
 </html>
