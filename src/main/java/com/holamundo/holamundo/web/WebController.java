@@ -3,11 +3,15 @@ package com.holamundo.holamundo.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 // import com.holamundo.holamundo.dao.InterfacePersonDao;
 import com.holamundo.holamundo.service.PersonServiceImp;
+
+import jakarta.validation.Valid;
+
 import com.holamundo.holamundo.domain.Person;
 
 @Controller
@@ -31,7 +35,8 @@ public class WebController {
     }
 
     @PostMapping("/save")
-    public String savePerson(Person person){
+    public String savePerson(@Valid Person person, Errors errors){
+        if(errors.hasErrors()) return "configperson";
         personService.save(person);
         return "redirect:/persons";
     }
