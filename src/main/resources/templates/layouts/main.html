@@ -11,8 +11,12 @@
         <h1 th:text="#{layout.title}">Title</h1>
     </header>
 
-    <footer th:fragment="footer">
-        <div style="background-color: darkcyan; color:azure; width:100%; padding:0.5rem; position: absolute; bottom: 0;">
+    <footer th:fragment="footer" style="background-color: darkcyan; color:azure; width:100%; padding:0.5rem; position: absolute; bottom: 0;">
+        <div style="margin: 0.8rem 0">
+            <a th:href="@{/(lang=es)}" style="margin-right: 0.5rem;">ES</a>
+            <a th:href="@{/(lang=en)}" style="margin-right: 0.5rem;">EN</a>
+        </div>
+        <div>
             <p>[[#{layout.page_footer}]] <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click</a></p>
             <p style="text-align: center; font-weight: 600; font-family: sans-serif; font-size: 1.5rem;">footer</p>
         </div>
