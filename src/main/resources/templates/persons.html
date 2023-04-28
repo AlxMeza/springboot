@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Lista de Personas</h1>
-    <a th:href="@{/addperson}">[[#{create.person}]]</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addperson}">[[#{create.person}]]</a>
     <div th:if="${personList != null and !personList.empty}">
         <table border="1">
             <tr>
@@ -16,16 +16,16 @@
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>Telefono</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')" >Edit</th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')" >Delete</th>
             </tr>
             <tr th:each="persona : ${personList}">
                 <td th:text="${persona.name}"></td>
                 <td th:text="${persona.lastname}"></td>
                 <td th:text="${persona.email}"></td>
                 <td th:text="${persona.phone}"></td>
-                <td style="padding: 0 0.8rem;" ><a th:href="@{/edit/} + ${persona.id}" th:text="Edit"></a></td>
-                <td style="padding: 0 0.8rem;"><a th:href="@{/delete(id=${persona.id})}" th:text="Delete"></a></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')" style="padding: 0 0.8rem;" ><a th:href="@{/edit/} + ${persona.id}" th:text="Edit"></a></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')" style="padding: 0 0.8rem;"><a th:href="@{/delete(id=${persona.id})}" th:text="Delete"></a></td>
             </tr>
         </table>
     </div>
