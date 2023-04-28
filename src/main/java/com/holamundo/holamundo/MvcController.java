@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 // import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 
 import lombok.extern.slf4j.Slf4j;
 // import com.holamundo.holamundo.domain.*;
@@ -21,9 +23,10 @@ public class MvcController {
     private String saludo;
     
     @GetMapping("/")
-    public String getInicio(Model model) {
+    public String getInicio(Model model, @AuthenticationPrincipal User user) {
         var saludar = "Hola mundo con thymeleaf";
         log.info("Ejecutando mvc Controller");
+        log.info("Login: "+user);
         model.addAttribute("mensaje", saludar);
         model.addAttribute("message", saludo);
         return "index";

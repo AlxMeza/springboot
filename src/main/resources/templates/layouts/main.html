@@ -19,6 +19,7 @@
         <div>
             <p>[[#{layout.page_footer}]] <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click</a></p>
             <p style="text-align: center; font-weight: 600; font-family: sans-serif; font-size: 1.5rem;">footer</p>
+            <form th:action="@{/logout}" method="POST"><button onclick="this.parentNode.submit()">Log out</button></form>
         </div>
     </footer>
 </body>
